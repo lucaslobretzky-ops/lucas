@@ -1395,7 +1395,7 @@
           </span>
         </h1>
 
-        <p class="hero-sub">Juegos, risas, merienda y muchas sorpresas.</p>
+        <p class="hero-sub">Fuego, asado, sobremesa larga y la infaltable torta.</p>
 
         <div class="date-chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1449,9 +1449,9 @@
         <p class="sr-only" id="countdownSr" aria-live="polite"></p>
 
         <div class="party-chips reveal" aria-label="Lo que vas a encontrar en la fiesta">
-          <span>🧁 Merienda</span>
-          <span>🎮 Juegos</span>
-          <span>🎁 Sorpresas</span>
+          <span>🍕 Rica comida</span>
+          <span>📸 Fotos y recuerdos</span>
+          <span>🥂 Muchas risas</span>
         </div>
       </section>
 
@@ -1518,7 +1518,7 @@
           </div>
 
           <div class="location-body">
-            <span class="place-tag">🎈 Fiesta infantil</span>
+            <span class="place-tag">🎈 Fiesta para adultos</span>
             <h3 data-lugar>Salón Dulce de Leche</h3>
 
             <p class="address">
@@ -1526,18 +1526,18 @@
                 <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
                 <circle cx="12" cy="10" r="2.5" />
               </svg>
-              <span data-direccion>Ghersi 371, Monte Grande, Buenos Aires</span>
+              <span data-direccion>Ghersi 371, Monte Grande</span>
             </p>
 
             <div class="place-facts" aria-label="Comodidades del lugar">
               <span>🅿️ Estacionamiento</span>
-              <span>🧸 Espacio para peques</span>
+              <span>🥩 Asado</span>
             </div>
 
             <a
               class="btn btn-map"
               id="mapsLink"
-              href="https://www.google.com/maps/search/?api=1&amp;query=Ghersi%20371%2C%20Monte%20Grande%2C%20Buenos%20Aires"
+              href="https://maps.app.goo.gl/9BJjNw8WFL7c4bEu6"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -1624,13 +1624,15 @@
        ------------------------------------------------------------
        - fechaEvento: ISO con offset de Argentina (-03:00).
        - whatsapp: código de país + número, SIN +, espacios ni guiones.
+       - mapsUrl: link corto de Google Maps del salón.
        ============================================================ */
     const CONFIG = {
       nombre: "Lucas",
       fechaEvento: "2026-10-23T21:00:00-03:00",
       lugar: "Salón Dulce de Leche",
-      direccion: "Ghersi 371, Monte Grande, Buenos Aires",
-      mapsQuery: "Salón Dulce de Leche, Ghersi 371, Monte Grande, Buenos Aires",
+      direccion: "Ghersi 371, Monte Grande",
+      mapsQuery: "Salón Dulce de Leche, Ghersi 371, Monte Grande",
+      mapsUrl: "https://maps.app.goo.gl/9BJjNw8WFL7c4bEu6",
       whatsapp: "5491157179411"
     };
 
@@ -1703,7 +1705,9 @@
       const mapsLink = $("#mapsLink");
       const mapsQuery = CONFIG.mapsQuery || `${CONFIG.lugar}, ${CONFIG.direccion}`;
       if (mapsLink) {
-        mapsLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
+        mapsLink.href =
+          CONFIG.mapsUrl ||
+          `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
         mapsLink.setAttribute("aria-label", `Cómo llegar a ${CONFIG.lugar} en Google Maps`);
       }
 
